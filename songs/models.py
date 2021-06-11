@@ -8,7 +8,7 @@ class Song(models.Model):
     # ! Might need to be changed
     notes = models.JSONField()
     likes = models.PositiveBigIntegerField()
-    danger_rating =  models.PositiveIntegerField(
+    tempo =  models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(180)]
     )
 
