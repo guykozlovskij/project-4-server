@@ -139,4 +139,4 @@ REST_FRAMEWORK = {
     ]
 }
 
-AUTH_USER_MODEL = 'jwt_auth.User'
+# AUTH_USER_MODEL = 'jwt_auth.User'
