@@ -4,10 +4,25 @@ GET http://localhost:8000/api/songs/
 ### Get a single song 
 GET http://localhost:8000/api/songs/1/
 
+###
+POST http://localhost:8000/api/songs/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+{
+  "name": "Darude Sandstorm",
+  "notes": "du du du du du",
+  "likes": "100",
+  "tempo": "50"
+}
+
+###
+DELETE  http://localhost:8000/api/songs/1/
 
 
 
 
+# -----------------------------------------------------------------
 
 ### Register a User
 POST http://localhost:8000/api/auth/register/
