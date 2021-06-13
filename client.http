@@ -2,7 +2,7 @@
 GET http://localhost:8000/api/songs/
 
 ### Get a single song 
-GET http://localhost:8000/api/songs/2/
+GET http://localhost:8000/api/songs/14/
 
 ###
 POST http://localhost:8000/api/songs/
@@ -10,7 +10,7 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
 
 {
-  "name": "Darude Sandstorm",
+  "name": "NEW SONG",
   "notes": "du du du du du",
   "likes": "100",
   "tempo": "50"
@@ -74,4 +74,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0c
 
 ### Delete Comment
 Delete http://localhost:8000/api/songs/2/comments/8/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+
+# -----------------------------------------------------------------
+
+
+### Like a song
+POST http://localhost:8000/api/songs/1/like/
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo

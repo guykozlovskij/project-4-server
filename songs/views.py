@@ -28,6 +28,8 @@ class SongListView(APIView):
         return Response(new_song.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
+# ?-----------------------------------------------------------------
+
 
 class SongDetailView(APIView):
 
@@ -62,7 +64,28 @@ class SongDetailView(APIView):
         song_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-#?-----------------------------------------------------------------
+
+# ?-----------------------------------------------------------------
+
+
+class SongLikedView(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, pk):
+        try:
+            song_to_like = Song.objects.get(pk=pk)
+            if request.user in song_to_like.liked_by.all():
+                song_to_like.liked_by.remove(request.user.id)
+            else:
+                song_to_like.liked_by.add(request.user.id)
+            song_to_like.save()
+            serialized_song = PopulatedSongSerializer(song_to_like)
+            return Response(serialized_song.data, status=status.HTTP_202_ACCEPTED)
+        except Song.DoesNotExist:
+            raise NotFound()
+
+
+# ?-----------------------------------------------------------------
 
 
 class CommentListView(APIView):

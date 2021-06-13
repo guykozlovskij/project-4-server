@@ -29,5 +29,5 @@ class PopulatedCommentSerializer(CommentSerializer):
 
 class PopulatedSongSerializer(SongSerializer):
     comments = PopulatedCommentSerializer(many=True)
-    # favorited_by = UserSerializer(many=True)
+    liked_by = UserSerializer(many=True)
     owner = UserSerializer()
