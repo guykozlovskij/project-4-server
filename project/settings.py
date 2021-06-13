@@ -137,7 +137,7 @@ REST_FRAMEWORK = {
         'djangorestframework_camel_case.parser.CamelCaseJSONParser',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'jwt_auth.authentication.JWTAuthentication'
+        'jwt_auth.authentication.JWTAuthentication'
     ]
 }
 

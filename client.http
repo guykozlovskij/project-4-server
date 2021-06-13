@@ -4,5 +4,32 @@ GET http://localhost:8000/api/songs/
 ### Get a single song 
 GET http://localhost:8000/api/songs/1/
 
-### Create a new song
-POST http://localhost:8000/api/dinosaurs/
+
+
+
+
+
+### Register a User
+POST http://localhost:8000/api/auth/register/
+Content-Type: application/json
+
+{
+  "username": "guy",
+  "email": "guy@email.com",
+  "password": "password123!",
+  "passwordConfirmation": "password123!"
+}
+
+### Login a User
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+  "email": "guy@email.com",
+  "password": "password123!"
+}
+
+
+
+
+
