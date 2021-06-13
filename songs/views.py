@@ -71,6 +71,7 @@ class CommentListView(APIView):
 
     def post(self, request, song_pk):
         request.data['song'] = song_pk
+        request.data['owner'] = request.user.id
         serialized_comment = CommentSerializer(data=request.data)
         if serialized_comment.is_valid():
             serialized_comment.save()
@@ -81,10 +82,12 @@ class CommentListView(APIView):
 class CommentDetailView(APIView):
 
     permission_classes = (IsAuthenticated, )
-    
-    def delete(self, _request, _, comment_pk):
+
+    def delete(self, request, _, comment_pk):
         try:
             comment_to_delete = Comment.objects.get(pk=comment_pk)
+            if comment_to_delete.owner != request.user:
+                raise PermissionDenied()
             comment_to_delete.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Comment.DoesNotExist:
