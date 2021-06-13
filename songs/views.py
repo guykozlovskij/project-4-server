@@ -31,6 +31,8 @@ class SongListView(APIView):
 
 class SongDetailView(APIView):
 
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
     def get_song(self, pk):
         try:
             return Song.objects.get(pk=pk)
@@ -62,7 +64,11 @@ class SongDetailView(APIView):
 
 #?-----------------------------------------------------------------
 
+
 class CommentListView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
     def post(self, request, song_pk):
         request.data['song'] = song_pk
         serialized_comment = CommentSerializer(data=request.data)
@@ -73,6 +79,9 @@ class CommentListView(APIView):
 
 
 class CommentDetailView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+    
     def delete(self, _request, _, comment_pk):
         try:
             comment_to_delete = Comment.objects.get(pk=comment_pk)

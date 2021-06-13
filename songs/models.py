@@ -7,7 +7,6 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Song(models.Model):
     name = models.CharField(max_length=20)
-    # ! Might need to be changed
     notes = models.JSONField()
     likes = models.PositiveBigIntegerField()
     tempo = models.PositiveIntegerField(
@@ -27,6 +26,11 @@ class Comment(models.Model):
     content = models.TextField(max_length=250)
     song = models.ForeignKey(
         Song,
+        related_name='comments',
+        on_delete=models.CASCADE
+    )
+    owner = models.ForeignKey(
+        'jwt_auth.User',
         related_name='comments',
         on_delete=models.CASCADE
     )

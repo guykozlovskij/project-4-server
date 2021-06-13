@@ -5,6 +5,12 @@ from .models import Song, Comment
 
 User = get_user_model()
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'profile_image')
+
+
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
@@ -17,14 +23,11 @@ class SongSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class UserSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = User
-        fields = ('id', 'username')
+class PopulatedCommentSerializer(CommentSerializer):
+    owner = UserSerializer()
 
 
 class PopulatedSongSerializer(SongSerializer):
-    comments = CommentSerializer(many=True)
+    comments = PopulatedCommentSerializer(many=True)
     # favorited_by = UserSerializer(many=True)
     owner = UserSerializer()

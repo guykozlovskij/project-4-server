@@ -17,12 +17,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0c
 }
 
 ### Edit song
-PUT  http://localhost:8000/api/songs/2/
+PUT  http://localhost:8000/api/songs/12/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
 
 {
-  "name": "Darude Sandstorm 2",
+  "name": "Darude EDIT 2",
   "notes": "du du du du du du du du du du",
   "likes": "200",
   "tempo": "100",
@@ -30,7 +30,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0c
 }
 
 ### Delete song
-DELETE  http://localhost:8000/api/songs/5/
+DELETE  http://localhost:8000/api/songs/12/
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
 
 
@@ -65,10 +65,13 @@ Content-Type: application/json
 ### Post a comment
 POST http://localhost:8000/api/songs/2/comments/
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
 
 {
+  "owner": "1",
   "content": "comment test"
 }
 
 ### Delete Comment
-Delete http://localhost:8000/api/songs/2/comments/2/
+Delete http://localhost:8000/api/songs/2/comments/6/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
