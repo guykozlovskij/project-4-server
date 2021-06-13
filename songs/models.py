@@ -3,12 +3,14 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
+
+
 class Song(models.Model):
     name = models.CharField(max_length=20)
     # ! Might need to be changed
     notes = models.JSONField()
     likes = models.PositiveBigIntegerField()
-    tempo =  models.PositiveIntegerField(
+    tempo = models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(180)]
     )
     owner = models.ForeignKey(
@@ -20,5 +22,16 @@ class Song(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+
+class Comment(models.Model):
+    content = models.TextField(max_length=250)
+    song = models.ForeignKey(
+        Song,
+        related_name='comments',
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f'Comment {self.id} on {self.song}'
 
 #! Notes model

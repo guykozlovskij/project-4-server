@@ -2,7 +2,7 @@
 GET http://localhost:8000/api/songs/
 
 ### Get a single song 
-GET http://localhost:8000/api/songs/1/
+GET http://localhost:8000/api/songs/2/
 
 ###
 POST http://localhost:8000/api/songs/
@@ -29,12 +29,13 @@ Content-Type: application/json
 }
 
 ### Delete song
-DELETE  http://localhost:8000/api/songs/8/
+DELETE  http://localhost:8000/api/songs/6/
 
 
 
 
 # -----------------------------------------------------------------
+
 
 ### Register a User
 POST http://localhost:8000/api/auth/register/
@@ -57,6 +58,16 @@ Content-Type: application/json
 }
 
 
+# -----------------------------------------------------------------
 
 
+### Post a comment
+POST http://localhost:8000/api/songs/2/comments/
+Content-Type: application/json
 
+{
+  "content": "comment test"
+}
+
+### Delete Comment
+Delete http://localhost:8000/api/songs/2/comments/2/

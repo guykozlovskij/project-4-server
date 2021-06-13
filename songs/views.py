@@ -6,8 +6,8 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
-from .models import Song
-from .serializers import SongSerializer, PopulatedSongSerializer
+from .models import Song, Comment
+from .serializers import SongSerializer, PopulatedSongSerializer, CommentSerializer
 
 
 class SongListView(APIView):
@@ -58,3 +58,23 @@ class SongDetailView(APIView):
         song_to_delete = self.get_song(pk=pk)
         song_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class CommentListView(APIView):
+    def post(self, request, song_pk):
+        request.data['song'] = song_pk
+        serialized_comment = CommentSerializer(data=request.data)
+        if serialized_comment.is_valid():
+            serialized_comment.save()
+            return Response(serialized_comment.data, status=status.HTTP_201_CREATED)
+        return Response(serialized_comment.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+class CommentDetailView(APIView):
+    def delete(self, _request, _, comment_pk):
+        try:
+            comment_to_delete = Comment.objects.get(pk=comment_pk)
+            comment_to_delete.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Comment.DoesNotExist:
+            raise NotFound()
