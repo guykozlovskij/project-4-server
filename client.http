@@ -83,3 +83,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0c
 ### Like a song
 POST http://localhost:8000/api/songs/1/like/
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+### Get User Profile
+GET http://localhost:8000/api/auth/profile/1/
