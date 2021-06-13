@@ -16,8 +16,20 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0c
   "tempo": "50"
 }
 
-###
-DELETE  http://localhost:8000/api/songs/1/
+### Edit song
+PUT  http://localhost:8000/api/songs/1/
+Content-Type: application/json
+
+{
+  "name": "Darude Sandstorm 2",
+  "notes": "du du du du du du du du du du",
+  "likes": "200",
+  "tempo": "100",
+  "owner": "1"
+}
+
+### Delete song
+DELETE  http://localhost:8000/api/songs/8/
 
 
 

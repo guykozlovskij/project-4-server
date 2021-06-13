@@ -7,7 +7,7 @@ from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from .models import Song
-from .serializers import SongSerializer
+from .serializers import SongSerializer, PopulatedSongSerializer
 
 
 class SongListView(APIView):
@@ -16,7 +16,7 @@ class SongListView(APIView):
 
     def get(self, _request):
         songs = Song.objects.all()
-        serialized_songs = SongSerializer(songs, many=True)
+        serialized_songs = PopulatedSongSerializer(songs, many=True)
         return Response(serialized_songs.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -38,7 +38,23 @@ class SongDetailView(APIView):
 
     def get(self, _request, pk):
         song = self.get_song(pk=pk)
-        serialized_song = SongSerializer(song)
+        serialized_song = PopulatedSongSerializer(song)
         return Response(serialized_song.data, status=status.HTTP_200_OK)
 
-    
+    def put(self, request, pk):
+        song_to_update = self.get_song(pk=pk)
+        updated_song = SongSerializer(song_to_update, data=request.data)
+        if updated_song.is_valid():
+            updated_song.save()
+            return Response(updated_song.data, status=status.HTTP_202_ACCEPTED)
+        return Response(updated_song.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+    def delete(self, _request, pk):
+        # song_to_delete = self.get_song(pk=pk)
+        # if song_to_delete.owner != request.user:
+        #     raise PermissionDenied()
+        # song_to_delete.delete()
+        # return Response(status=status.HTTP_204_NO_CONTENT)
+        song_to_delete = self.get_song(pk=pk)
+        song_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

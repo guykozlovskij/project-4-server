@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'songs'
+    'songs',
+    'jwt_auth',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +142,4 @@ REST_FRAMEWORK = {
     ]
 }
 
-# AUTH_USER_MODEL = 'jwt_auth.User'
+AUTH_USER_MODEL = 'jwt_auth.User'

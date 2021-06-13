@@ -11,9 +11,14 @@ class Song(models.Model):
     tempo =  models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(180)]
     )
-
+    owner = models.ForeignKey(
+        'jwt_auth.User',
+        related_name='created_songs',
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return f'{self.name}'
 
-#? Notes model
+
+#! Notes model
