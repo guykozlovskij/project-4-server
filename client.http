@@ -1,0 +1,8 @@
+### Get all songs
+GET http://localhost:8000/api/songs/
+
+### Get a single song 
+GET http://localhost:8000/api/songs/1/
+
+### Create a new song
+POST http://localhost:8000/api/dinosaurs/
