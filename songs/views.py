@@ -44,6 +44,9 @@ class SongDetailView(APIView):
 
     def put(self, request, pk):
         song_to_update = self.get_song(pk=pk)
+        if song_to_update.owner != request.user:
+            raise PermissionDenied()
+        request.data['owner'] = request.user.id
         updated_song = SongSerializer(song_to_update, data=request.data)
         if updated_song.is_valid():
             updated_song.save()
