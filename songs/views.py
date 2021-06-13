@@ -28,6 +28,7 @@ class SongListView(APIView):
         return Response(new_song.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
+
 class SongDetailView(APIView):
 
     def get_song(self, pk):
@@ -49,16 +50,14 @@ class SongDetailView(APIView):
             return Response(updated_song.data, status=status.HTTP_202_ACCEPTED)
         return Response(updated_song.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
-    def delete(self, _request, pk):
-        # song_to_delete = self.get_song(pk=pk)
-        # if song_to_delete.owner != request.user:
-        #     raise PermissionDenied()
-        # song_to_delete.delete()
-        # return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, pk):
         song_to_delete = self.get_song(pk=pk)
+        if song_to_delete.owner != request.user:
+            raise PermissionDenied()
         song_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+#?-----------------------------------------------------------------
 
 class CommentListView(APIView):
     def post(self, request, song_pk):
