@@ -1,0 +1,88 @@
+### Get all songs
+GET http://localhost:8000/api/songs/
+
+### Get a single song 
+GET http://localhost:8000/api/songs/14/
+
+###
+POST http://localhost:8000/api/songs/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+{
+  "name": "NEW SONG",
+  "notes": "du du du du du",
+  "likes": "100",
+  "tempo": "50"
+}
+
+### Edit song
+PUT  http://localhost:8000/api/songs/12/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+{
+  "name": "Darude EDIT 2",
+  "notes": "du du du du du du du du du du",
+  "likes": "200",
+  "tempo": "100",
+  "owner": "1"
+}
+
+### Delete song
+DELETE  http://localhost:8000/api/songs/12/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+
+
+# -----------------------------------------------------------------
+
+
+### Register a User
+POST http://localhost:8000/api/auth/register/
+Content-Type: application/json
+
+{
+  "username": "guy",
+  "email": "guy@email.com",
+  "password": "password123!",
+  "passwordConfirmation": "password123!"
+}
+
+### Login a User
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+  "email": "guy@email.com",
+  "password": "password123!"
+}
+
+
+# -----------------------------------------------------------------
+
+
+### Post a comment
+POST http://localhost:8000/api/songs/2/comments/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+{
+  "owner": "1",
+  "content": "comment test"
+}
+
+### Delete Comment
+Delete http://localhost:8000/api/songs/2/comments/8/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+
+# -----------------------------------------------------------------
+
+
+### Like a song
+POST http://localhost:8000/api/songs/1/like/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+### Get User Profile
+GET http://localhost:8000/api/auth/profile/2/

@@ -1,0 +1,19 @@
+[
+{
+  "model": "songs.song",
+  "pk": 1,
+  "fields": {
+    "name": "My song",
+    "notes": {
+      "c1": [
+        false,
+        false,
+        true,
+        true
+      ]
+    },
+    "likes": 4,
+    "tempo": 120
+  }
+}
+]
