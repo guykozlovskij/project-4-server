@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 pyjwt = "*"
 djangorestframework = "*"
 djangorestframework-camel-case = "*"
+pylint = "*"
 
 [dev-packages]
 
