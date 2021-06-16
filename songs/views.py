@@ -90,7 +90,7 @@ class SongLikedView(APIView):
 
 class CommentListView(APIView):
 
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def post(self, request, song_pk):
         request.data['song'] = song_pk
