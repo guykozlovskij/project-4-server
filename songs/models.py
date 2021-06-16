@@ -8,7 +8,6 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Song(models.Model):
     name = models.CharField(max_length=20)
     notes = models.JSONField()
-    likes = models.PositiveBigIntegerField()
     liked_by = models.ManyToManyField(
         'jwt_auth.User',
         related_name='liked_songs',
