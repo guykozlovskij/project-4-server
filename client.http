@@ -63,7 +63,17 @@ Content-Type: application/json
 
 
 ### Post a comment
-POST http://localhost:8000/api/songs/2/comments/
+POST http://localhost:8000/api/songs/1/comments/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+
+{
+  "owner": "1",
+  "content": "comment test"
+}
+
+### Edit a comment
+PUT http://localhost:8000/api/songs/1/comments/2/
 Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
 
