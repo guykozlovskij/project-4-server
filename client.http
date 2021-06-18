@@ -30,8 +30,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0c
 }
 
 ### Delete song
-DELETE  http://localhost:8000/api/songs/12/
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
+DELETE  http://localhost:8000/api/songs/3/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTYyNDU0NDM2N30.fZ-jB-23HstXTgTn6I67-nEDcZJRBm_4VneXQqp_dd4
 
 
 # -----------------------------------------------------------------
@@ -53,8 +53,8 @@ POST http://localhost:8000/api/auth/login/
 Content-Type: application/json
 
 {
-  "email": "guy@email.com",
-  "password": "password123!"
+  "email": "admin@email.com",
+  "password": "admin"
 }
 
 
