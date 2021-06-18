@@ -42,10 +42,11 @@ POST http://localhost:8000/api/auth/register/
 Content-Type: application/json
 
 {
-  "username": "guy",
-  "email": "guy@email.com",
+  "username": "12345",
+  "email": "12345@email.com",
   "password": "password123!",
-  "passwordConfirmation": "password123!"
+  "passwordConfirmation": "password123!",
+  "profileImage": "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
 }
 
 ### Login a User
@@ -94,4 +95,4 @@ POST http://localhost:8000/api/songs/1/like/
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjJ9.fGF4Vh0cgfHlp0ecMzpwu4mXt1ZT5Hqve6wZCm5pUJo
 
 ### Get User Profile
-GET http://localhost:8000/api/auth/profile/2/
+GET http://localhost:8000/api/auth/profile/11/
