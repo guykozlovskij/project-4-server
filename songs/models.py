@@ -27,7 +27,7 @@ class Song(models.Model):
 
 
 class Comment(models.Model):
-    content = models.TextField(max_length=250)
+    content = models.TextField(max_length=50)
     song = models.ForeignKey(
         Song,
         related_name='comments',
