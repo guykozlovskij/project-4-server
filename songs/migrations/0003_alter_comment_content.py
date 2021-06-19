@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('jwt_auth', '0003_alter_user_profile_image'),
+        ('songs', '0002_remove_song_likes'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='profile_image',
-            field=models.CharField(max_length=250),
+            model_name='comment',
+            name='content',
+            field=models.TextField(max_length=50),
         ),
     ]
