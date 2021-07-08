@@ -2,8 +2,6 @@ from django.contrib.admin.sites import NotRegistered
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-# Create your models here.
-
 
 class Song(models.Model):
     name = models.CharField(max_length=20)
@@ -42,4 +40,3 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment {self.id} on {self.song}'
 
-#! Notes model
