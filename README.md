@@ -42,7 +42,7 @@ Project frontend can be found [here](https://github.com/guykozlovskij/project-4-
 <a name="overview"></a>
 
 ## Overview
-For our fourth and final project at **General Assembly's Software Engineering Immersive Course** we were given 7 days to build a full stack website. After some consideration we deiced to build something that allows users to create and share their creations. 
+For our fourth and final project at **General Assembly's Software Engineering Immersive Course** we were given 7 days to build a full stack website. After some consideration we decided to build something that allows users to create and share their creations. 
 
 **note-it-down** was born - an app to make short tunes in the scale of C major. 
 
@@ -320,7 +320,7 @@ Finally, to preserve the clean look of the website, instead of having persistent
 <a name="wins"></a>
 
 ### Wins and Challenges
-- **Tone.js**: working with this library was not easy and required thorough reading of documentation and studying other people's applications. Although we are happy with the final product we could not prevent the player braking when using the app for too long or placing too many notes.  
+- **Tone.js**: working with this library was not easy and required thorough reading of documentation and studying other people's applications. Although we are happy with the final product we could not prevent the player breaking when using the app for too long or placing too many notes.  
 
 - **Responsive Design**: Due to us being on track with development and always moving along at a good pace, we had 1 day to try and make "note-it-down" mobile friendly. We are incredibly happy with how it turned out as it really gave the app the feeling of being a finished product. 
 
